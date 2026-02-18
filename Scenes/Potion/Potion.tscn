@@ -7,28 +7,22 @@
 height = 0.50561523
 radius = 0.92822266
 
-[node name="Potion" type="Node3D" unique_id=1538363055]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
-script = ExtResource("1_dt4k1")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=406657175]
-unique_name_in_owner = true
+[node name="Potion" type="RigidBody3D" unique_id=406657175]
 collision_layer = 0
 collision_mask = 0
 freeze = true
+script = ExtResource("1_dt4k1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=241060116]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=241060116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07849121, 0)
 shape = SubResource("CylinderShape3D_dyfog")
 
 [node name="Mesh" parent="." unique_id=1040727149 instance=ExtResource("2_1qwat")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="Lifetime Timer" type="Timer" parent="." unique_id=1045884645]
 unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
-
-[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_entered"]
-[connection signal="timeout" from="Lifetime Timer" to="." method="_on_lifetime_timer_timeout"]
 
 [editable path="Mesh"]

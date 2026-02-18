@@ -5,6 +5,7 @@
 
 extends CharacterBody3D
 
+@export_group("Actions")
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -44,17 +45,28 @@ extends CharacterBody3D
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+## Determines throw behavior
+@export_group("Throwing")
+## Force the potion is thrown at target with
+@export var throw_force : float = 10
+## Extra upwards tilt added to the throw angle
+@export var added_arc : float = .3
+
+## IMPORTANT REFERENCES
+@onready var head: Node3D = $Head
+@onready var collider: CollisionShape3D = $Collider
+@onready var camera: Camera3D = %Camera3D
+@onready var potion: Potion = %Potion
+
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 
-## IMPORTANT REFERENCES
-@onready var head: Node3D = $Head
-@onready var collider: CollisionShape3D = $Collider
 
 func _ready() -> void:
 	check_input_mappings()
+	capture_mouse()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
@@ -68,6 +80,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
+	
+	# Throw potion
+	if Input.is_action_just_pressed("action_fire"):
+		throw_potion()
 	
 	# Toggle freefly mode
 	if can_freefly and Input.is_action_just_pressed(input_freefly):
@@ -176,3 +192,11 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+# Determines direction and force to throw potion
+func throw_potion() -> void:
+	var forward_dir := -camera.get_global_transform().basis.z
+	forward_dir.y += added_arc
+	var random_torque = Vector3(randf_range(-.1, .1), randf_range(-.1, .1), randf_range(-.1, .1))
+
+	potion.throw(forward_dir, throw_force, random_torque)
