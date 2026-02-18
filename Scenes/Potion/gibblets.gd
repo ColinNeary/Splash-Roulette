@@ -8,11 +8,12 @@ func spawn_self(spawn_velocity: Vector3, spawn_torque: Vector3) -> void:
 	self.call_deferred("reparent", get_tree().current_scene)
 	self.process_mode = Node.PROCESS_MODE_INHERIT
 	self.visible = true
-	_add_velocity_to_gibblets(spawn_velocity, spawn_torque)
+	_add_movement_to_gibblets(spawn_velocity, spawn_torque)
 	lifetime_timer.start()
-	
 
-func _add_velocity_to_gibblets(velocity: Vector3, torque: Vector3) -> void:
+
+## Adds full potion's movement to each gibblet
+func _add_movement_to_gibblets(velocity: Vector3, torque: Vector3) -> void:
 	var child_count : int = self.get_child_count() - 1
 	
 	if child_count < 0:
