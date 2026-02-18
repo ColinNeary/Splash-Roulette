@@ -4,6 +4,7 @@ class_name Potion
 @onready var lifetime_timer: Timer = %"Lifetime Timer"
 
 
+# Copy this potion then throw it
 func throw(dir:Vector3, force:float, torque:Vector3) -> void:
 	# Create clone
 	var clone : Node3D = self.duplicate()
@@ -28,8 +29,9 @@ func throw(dir:Vector3, force:float, torque:Vector3) -> void:
 func _on_lifetime_timer_timeout() -> void:
 	self.queue_free()
 
+
 # When potion collides with something, freeze for now
-func _on_rigid_body_entered(body: Node) -> void:
+func _on_rigid_body_entered(_body: Node) -> void:
 	pass
 	#self.freeze = true
 	#self.set_deferred("set_contact_monitor", false)

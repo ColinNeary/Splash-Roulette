@@ -51,6 +51,8 @@ extends CharacterBody3D
 @export var throw_force : float = 10
 ## Extra upwards tilt added to the throw angle
 @export var added_arc : float = .3
+## Rotation on the potion while being thrown
+@export var throw_wobble : float = 1
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -197,6 +199,9 @@ func check_input_mappings():
 func throw_potion() -> void:
 	var forward_dir := -camera.get_global_transform().basis.z
 	forward_dir.y += added_arc
-	var random_torque = Vector3(randf_range(-.1, .1), randf_range(-.1, .1), randf_range(-.1, .1))
+	var random_torque := Vector3(
+		randf_range(-throw_wobble, throw_wobble), 
+		randf_range(-throw_wobble, throw_wobble), 
+		randf_range(-throw_wobble, throw_wobble))
 
 	potion.throw(forward_dir, throw_force, random_torque)

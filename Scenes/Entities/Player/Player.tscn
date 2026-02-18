@@ -17,25 +17,8 @@ height = 1.8
 [node name="Player" type="CharacterBody3D" unique_id=1964359459]
 collision_layer = 2
 script = ExtResource("1_ucva2")
-can_move = null
-has_gravity = null
-can_jump = null
 can_sprint = true
 can_freefly = true
-look_speed = null
-base_speed = null
-jump_velocity = null
-sprint_speed = null
-freefly_speed = null
-input_left = null
-input_right = null
-input_forward = null
-input_back = null
-input_jump = null
-input_sprint = null
-input_freefly = null
-throw_force = null
-added_arc = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1959429802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
