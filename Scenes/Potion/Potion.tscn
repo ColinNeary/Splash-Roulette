@@ -84,13 +84,14 @@ transform = Transform3D(0.9997985, 0, -0.020069936, 0, 0.99999994, 0, 0.02006993
 transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.9999998, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
 shape = SubResource("ConvexPolygonShape3D_dyfog")
 
-[node name="Lifetime Timer" type="Timer" parent="Gibblets" unique_id=82051784]
-wait_time = 20.0
+[node name="Gibblets Lifetime Timer" type="Timer" parent="Gibblets" unique_id=82051784]
+unique_name_in_owner = true
+wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Lifetime Timer" to="." method="_on_lifetime_timer_timeout"]
-[connection signal="timeout" from="Gibblets/Lifetime Timer" to="Gibblets" method="_on_lifetime_timer_timeout"]
+[connection signal="timeout" from="Gibblets/Gibblets Lifetime Timer" to="Gibblets" method="_on_lifetime_timer_timeout"]
 
 [editable path="Mesh"]
 [editable path="Gibblets/Piece/Pie"]
