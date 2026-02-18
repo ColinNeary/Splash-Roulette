@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://jr5ck21wm4qc"]
 
 [ext_resource type="Script" uid="uid://8ibftpxkdim0" path="res://Scenes/Potion/potion.gd" id="1_dt4k1"]
-[ext_resource type="PackedScene" uid="uid://fr01ef2s6gal" path="res://Assets/Pie/Pie.fbx" id="2_1qwat"]
+[ext_resource type="PackedScene" uid="uid://fr01ef2s6gal" path="res://Assets/Objects/Pie.fbx" id="2_1qwat"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dyfog"]
-height = 0.50561523
-radius = 0.92822266
+height = 0.37445068
+radius = 0.7363281
 
 [node name="Potion" type="RigidBody3D" unique_id=406657175]
 collision_layer = 0
@@ -14,7 +14,7 @@ freeze = true
 script = ExtResource("1_dt4k1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=241060116]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07849121, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05380249, 0)
 shape = SubResource("CylinderShape3D_dyfog")
 
 [node name="Mesh" parent="." unique_id=1040727149 instance=ExtResource("2_1qwat")]
