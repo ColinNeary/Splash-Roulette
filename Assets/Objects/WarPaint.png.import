@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deuly8n4j1prd"
-path.s3tc="res://.godot/imported/Pie.png-fa68c1c9a7aa52a3c016293957d20358.s3tc.ctex"
+uid="uid://bb656xbhvgdp3"
+path.s3tc="res://.godot/imported/WarPaint.png-227ca21c2b23792af395457740e20773.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Pie/Pie.png"
-dest_files=["res://.godot/imported/Pie.png-fa68c1c9a7aa52a3c016293957d20358.s3tc.ctex"]
+source_file="res://Assets/Objects/WarPaint.png"
+dest_files=["res://.godot/imported/WarPaint.png-227ca21c2b23792af395457740e20773.s3tc.ctex"]
 
 [params]
 

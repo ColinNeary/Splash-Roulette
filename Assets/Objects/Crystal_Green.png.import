@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4g2kdmwvd2pp"
-path.s3tc="res://.godot/imported/Pie_Pie.png-5496900a1dc4e53189f7487006d0823a.s3tc.ctex"
+uid="uid://c76bvjollrei6"
+path.s3tc="res://.godot/imported/Crystal_Green.png-371563e5717b7e0359a2f294d2bf7bac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "aa25cd03cd5eab1234ed4edd1c090924"
-}
 
 [deps]
 
-source_file="res://Assets/Pie/Pie_Pie.png"
-dest_files=["res://.godot/imported/Pie_Pie.png-5496900a1dc4e53189f7487006d0823a.s3tc.ctex"]
+source_file="res://Assets/Objects/Crystal_Green.png"
+dest_files=["res://.godot/imported/Crystal_Green.png-371563e5717b7e0359a2f294d2bf7bac.s3tc.ctex"]
 
 [params]
 
