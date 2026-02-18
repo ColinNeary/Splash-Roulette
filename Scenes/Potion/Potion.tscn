@@ -25,4 +25,7 @@ unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Lifetime Timer" to="." method="_on_lifetime_timer_timeout"]
+
 [editable path="Mesh"]

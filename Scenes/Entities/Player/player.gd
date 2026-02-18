@@ -48,10 +48,10 @@ extends CharacterBody3D
 ## Determines throw behavior
 @export_group("Throwing")
 ## Force the potion is thrown at target with
-@export var throw_force : float = 10
+@export var throw_force : float = 15
 ## Extra upwards tilt added to the throw angle
 @export var added_arc : float = .3
-## Rotation on the potion while being thrown
+## Rotation on the potion while being thrown. 0 = no wobble
 @export var throw_wobble : float = 1
 
 ## IMPORTANT REFERENCES
@@ -195,7 +195,7 @@ func check_input_mappings():
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
 
-# Determines direction and force to throw potion
+# Determines direction, force, and torque to throw potion
 func throw_potion() -> void:
 	var forward_dir := -camera.get_global_transform().basis.z
 	forward_dir.y += added_arc

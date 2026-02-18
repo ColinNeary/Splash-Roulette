@@ -6,23 +6,29 @@ class_name Potion
 
 # Copy this potion then throw it
 func throw(dir:Vector3, force:float, torque:Vector3) -> void:
+	var clone := _clone_throwable_self()
+	
+	clone.freeze = false
+	clone.apply_central_impulse(Vector3.ONE * force * dir)
+	clone.apply_torque_impulse(torque)
+	
+	clone.lifetime_timer.start()
+
+
+# Clone self and set some parameters to make throwing possible
+func _clone_throwable_self() -> RigidBody3D:
 	# Create clone
 	var clone : Node3D = self.duplicate()
 	get_tree().current_scene.add_child(clone)
 	
-	# Collisions
+	# Set important parameters
 	clone.global_position = self.global_position
 	clone.set_collision_mask_value(1, true) # potion will scan for walls
 	clone.set_collision_mask_value(3, true) # potion will scan for enemies
 	clone.contact_monitor = true
 	clone.max_contacts_reported = 1
 	
-	# Movement
-	clone.freeze = false
-	clone.apply_central_impulse(Vector3.ONE * force * dir)
-	clone.apply_torque_impulse(torque)
-	
-	clone.lifetime_timer.start()
+	return clone
 
 
 # If airborne for too long
@@ -31,8 +37,7 @@ func _on_lifetime_timer_timeout() -> void:
 
 
 # When potion collides with something, freeze for now
-func _on_rigid_body_entered(_body: Node) -> void:
-	pass
-	#self.freeze = true
-	#self.set_deferred("set_contact_monitor", false)
-	#self.call_deferred("reparent", body)
+func _on_body_entered(body: Node) -> void:
+	self.freeze = true
+	self.set_deferred("set_contact_monitor", false)
+	self.call_deferred("reparent", body)
