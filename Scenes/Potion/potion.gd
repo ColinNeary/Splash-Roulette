@@ -2,6 +2,7 @@ extends Node3D
 class_name Potion
 
 @onready var lifetime_timer: Timer = %"Lifetime Timer"
+@onready var gibblets: Node3D = %Gibblets
 
 
 # Copy this potion then throw it
@@ -36,8 +37,7 @@ func _on_lifetime_timer_timeout() -> void:
 	self.queue_free()
 
 
-# When potion collides with something, freeze for now
-func _on_body_entered(body: Node) -> void:
-	self.freeze = true
-	self.set_deferred("set_contact_monitor", false)
-	self.call_deferred("reparent", body)
+# When potion collides with something, shatter the pie
+func _on_body_entered(_body: Node) -> void:
+	gibblets.spawn_self()
+	self.queue_free()

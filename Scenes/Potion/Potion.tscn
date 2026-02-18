@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://8ibftpxkdim0" path="res://Scenes/Potion/potion.gd" id="1_dt4k1"]
 [ext_resource type="PackedScene" uid="uid://fr01ef2s6gal" path="res://Assets/Objects/Pie.fbx" id="2_1qwat"]
+[ext_resource type="PackedScene" uid="uid://fy8cocibrifs" path="res://Assets/Objects/Pie.glb" id="3_1qwat"]
+[ext_resource type="Script" uid="uid://csbbwmq8gx3ye" path="res://Scenes/Potion/gibblets.gd" id="3_dyfog"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dyfog"]
 height = 0.37445068
 radius = 0.7363281
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dyfog"]
+points = PackedVector3Array(-9.75132e-05, 0.25009912, 1.0476189, -0.61579096, 0.2827476, 0.84744734, -0.5878005, 0.10325506, 0.80899227, -9.75132e-05, -0.1565992, 0.92025566, -9.75132e-05, 0.3479952, 0, -0.99634475, 0.2827476, 0, -0.99634475, 0.25009912, 0.32363793, -0.49241823, -0.1565992, 0.7544373, -0.9510918, 0.10325506, 0.30897373, -0.8079209, -0.1565992, 0, -9.75132e-05, 0.00046914816, 0, -0.9510918, 0.10325506, 0, -0.8079209, -0.1565992, 0.32015133)
 
 [node name="Potion" type="RigidBody3D" unique_id=406657175]
 collision_layer = 0
@@ -25,7 +30,70 @@ unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
 
+[node name="Gibblets" type="Node3D" parent="." unique_id=1339309953]
+unique_name_in_owner = true
+process_mode = 4
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.93955874, -0.31063175, -0.6806954)
+visible = false
+script = ExtResource("3_dyfog")
+
+[node name="Piece" type="RigidBody3D" parent="Gibblets" unique_id=1970932046]
+transform = Transform3D(-0.009651542, 0, -0.9999534, 0, 1, 0, 0.9999534, 0, -0.009651542, -1.3076779, 0.35887492, 0.8870125)
+collision_layer = 0
+
+[node name="Pie" parent="Gibblets/Piece" unique_id=2051290907 instance=ExtResource("3_1qwat")]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.99999994, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gibblets/Piece" unique_id=1317699875]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.9999998, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+shape = SubResource("ConvexPolygonShape3D_dyfog")
+
+[node name="Piece2" type="RigidBody3D" parent="Gibblets" unique_id=1474776317]
+transform = Transform3D(0.9997422, 0, -0.022704784, 0, 1, 0, 0.022704784, 0, 0.9997422, -1.3076777, 0.35887492, 0.8870125)
+collision_layer = 0
+
+[node name="Pie" parent="Gibblets/Piece2" unique_id=1335033843 instance=ExtResource("3_1qwat")]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.99999994, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gibblets/Piece2" unique_id=235840195]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.9999998, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+shape = SubResource("ConvexPolygonShape3D_dyfog")
+
+[node name="Piece3" type="RigidBody3D" parent="Gibblets" unique_id=494348452]
+transform = Transform3D(-0.99991477, 0, -0.013054639, 0, 1, 0, 0.013054639, 0, -0.99991477, -1.3076779, 0.35887492, 0.8870125)
+collision_layer = 0
+
+[node name="Pie" parent="Gibblets/Piece3" unique_id=86992448 instance=ExtResource("3_1qwat")]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.99999994, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gibblets/Piece3" unique_id=786293595]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.9999998, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+shape = SubResource("ConvexPolygonShape3D_dyfog")
+
+[node name="Piece4" type="RigidBody3D" parent="Gibblets" unique_id=1207978771]
+transform = Transform3D(-0.03957376, 0, 0.9992167, 0, 1, 0, -0.9992167, 0, -0.03957376, -1.3076779, 0.35887492, 0.8870125)
+collision_layer = 0
+
+[node name="Pie" parent="Gibblets/Piece4" unique_id=1166667643 instance=ExtResource("3_1qwat")]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.99999994, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+
+[node name="Cylinder" parent="Gibblets/Piece4/Pie" index="0" unique_id=89461256]
+transform = Transform3D(0.9997985, 0, -0.020069936, 0, 0.99999994, 0, 0.020069936, 0, 0.9997985, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gibblets/Piece4" unique_id=1110187133]
+transform = Transform3D(1, 0, 1.8626451e-09, 0, 0.9999998, 0, -1.8626451e-09, 0, 1, 1.4901161e-07, 0, -3.7252903e-09)
+shape = SubResource("ConvexPolygonShape3D_dyfog")
+
+[node name="Lifetime Timer" type="Timer" parent="Gibblets" unique_id=82051784]
+wait_time = 20.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Lifetime Timer" to="." method="_on_lifetime_timer_timeout"]
+[connection signal="timeout" from="Gibblets/Lifetime Timer" to="Gibblets" method="_on_lifetime_timer_timeout"]
 
 [editable path="Mesh"]
+[editable path="Gibblets/Piece/Pie"]
+[editable path="Gibblets/Piece2/Pie"]
+[editable path="Gibblets/Piece3/Pie"]
+[editable path="Gibblets/Piece4/Pie"]
