@@ -4,6 +4,15 @@ class_name Potion
 @onready var lifetime_timer: Timer = %"Lifetime Timer"
 @onready var gibblets: Node3D = %Gibblets
 
+var prev_linear_velocity : Vector3
+var prev_angular_velocity : Vector3
+
+func _physics_process(_delta: float) -> void:
+	call_deferred("_update_prev_velocities")
+
+func _update_prev_velocities() -> void:
+	prev_linear_velocity = self.linear_velocity
+	prev_angular_velocity = self.angular_velocity
 
 # Copy this potion then throw it
 func throw(dir:Vector3, force:float, torque:Vector3) -> void:
@@ -39,5 +48,5 @@ func _on_lifetime_timer_timeout() -> void:
 
 # When potion collides with something, shatter the pie
 func _on_body_entered(_body: Node) -> void:
-	gibblets.spawn_self(self.linear_velocity, self.angular_velocity)
-	self.queue_free()
+	gibblets.spawn_self(prev_linear_velocity, prev_angular_velocity)
+	call_deferred("queue_free")

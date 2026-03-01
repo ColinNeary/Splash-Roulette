@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bh3j4rm52laj"]
+
+[ext_resource type="PackedScene" uid="uid://bejgfyshagoca" path="res://Assets/Game_Objects/glass_shard.glb" id="1_j68qo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dlluh"]
+points = PackedVector3Array(1, 0.026098823, 1, 1, 0, 1, 0.6489781, 0.026098823, -1, -0.76739275, 0.026098823, -0.30109632, -0.76739275, 0, -0.30109632, 0.6489781, 0, -1)
+
+[node name="Shard" type="RigidBody3D" unique_id=487336626]
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2035555363]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_dlluh")
+
+[node name="Mesh" parent="." unique_id=771656012 instance=ExtResource("1_j68qo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[editable path="Mesh"]
