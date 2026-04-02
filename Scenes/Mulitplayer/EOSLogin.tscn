@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://2dhiydvyujn0"]
+
+[ext_resource type="Script" uid="uid://dh678pby84d6j" path="res://Scenes/Mulitplayer/eos_login.gd" id="1_5jlfc"]
+[ext_resource type="PackedScene" uid="uid://d8kix5k60r32" path="res://Scenes/Overworld/Overworld.tscn" id="2_r5i5g"]
+
+[node name="EOSLogin" type="Control" unique_id=1124657004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5jlfc")
+game_scene = ExtResource("2_r5i5g")
+
+[node name="Timer" type="Timer" parent="." unique_id=274971195]
+wait_time = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1732588117]
+
+[node name="MessageDisplay" type="Label" parent="CanvasLayer" unique_id=2061505197]
+offset_left = 490.0
+offset_top = 173.0
+offset_right = 706.0
+offset_bottom = 196.0
+text = "This is EOS multiplayer wow"
+
+[node name="Temp" type="VBoxContainer" parent="CanvasLayer" unique_id=626908579]
+offset_left = 549.0
+offset_top = 264.0
+offset_right = 660.0
+offset_bottom = 330.0
+
+[node name="Create" type="Button" parent="CanvasLayer/Temp" unique_id=1300967502]
+layout_mode = 2
+text = "Create Lobby"
+
+[node name="Join" type="Button" parent="CanvasLayer/Temp" unique_id=1540651968]
+layout_mode = 2
+text = "Join Lobby"
+
+[connection signal="pressed" from="CanvasLayer/Temp/Create" to="." method="create_lobby"]
+[connection signal="pressed" from="CanvasLayer/Temp/Join" to="." method="search_lobbies"]
