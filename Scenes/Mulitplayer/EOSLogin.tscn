@@ -18,26 +18,39 @@ wait_time = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1732588117]
 
-[node name="MessageDisplay" type="Label" parent="CanvasLayer" unique_id=2061505197]
-offset_left = 490.0
-offset_top = 173.0
-offset_right = 706.0
-offset_bottom = 196.0
-text = "This is EOS multiplayer wow"
+[node name="Waiting" type="Label" parent="CanvasLayer" unique_id=752743216]
+offset_left = 573.0
+offset_top = 128.0
+offset_right = 632.0
+offset_bottom = 151.0
+text = "Waiting"
 
 [node name="Temp" type="VBoxContainer" parent="CanvasLayer" unique_id=626908579]
-offset_left = 549.0
-offset_top = 264.0
-offset_right = 660.0
-offset_bottom = 330.0
+visible = false
+offset_left = 523.0
+offset_top = 299.0
+offset_right = 707.0
+offset_bottom = 365.0
 
-[node name="Create" type="Button" parent="CanvasLayer/Temp" unique_id=1300967502]
+[node name="Label" type="Label" parent="CanvasLayer/Temp" unique_id=331690593]
 layout_mode = 2
-text = "Create Lobby"
+text = "Could not find a game :("
 
-[node name="Join" type="Button" parent="CanvasLayer/Temp" unique_id=1540651968]
-layout_mode = 2
-text = "Join Lobby"
+[node name="MessageDisplay" type="Label" parent="CanvasLayer" unique_id=2061505197]
+offset_left = 506.0
+offset_top = 468.0
+offset_right = 722.0
+offset_bottom = 491.0
+text = "This is EOS multiplayer wow"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/Temp/Create" to="." method="create_lobby"]
-[connection signal="pressed" from="CanvasLayer/Temp/Join" to="." method="search_lobbies"]
+[node name="Back" type="Button" parent="CanvasLayer" unique_id=144135977]
+offset_left = 112.0
+offset_top = 559.0
+offset_right = 157.0
+offset_bottom = 590.0
+text = "Back"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]

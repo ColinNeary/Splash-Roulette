@@ -13,13 +13,7 @@ var EosSetup = false
 
 var local_lobby: HLobby
 
-var EosCredentials = { "PRODUCT_NAME":"Splash Roulette",
-"PRODUCT_ID":"e4162402178b45bea04d28033b509556",
-"SANDBOX_ID":"10029256322a46298f3fde451cdf982b",
-"DEPLOYMENT_ID":"c11b2ff806c94e68884e98ec7f037f8c",
-"CLIENT_ID":"xyza7891dAbasPlkovhRHhdV5fmjoW9p",
-"CLIENT_SECRET":"qv/6Bfguic5WIcSL2HrGYx7Jv6JsoXVQm/ibGkLQs24",
-"ENCRYPTION_KEY":"VUDs0k[FJ}<lYa[pak6L5Wk$8?sZFw._uI}4*fg!fg!52w340j!<MLDE2dMoHi4," }
+
 
 func _ready() -> void:
 	display.text = "Starting"
@@ -63,8 +57,19 @@ func _ready() -> void:
 	
 		peer.peer_connected.connect(_on_peer_connected)
 		peer.peer_disconnected.connect(_on_peer_disconnected)
-	
+		
+		var credentials = HCredentials.new()
+		credentials.product_name = EosCredentials.PRODUCT_NAME
+		credentials.product_version = EosCredentials.PRODUCT_ID # (Typo? Should be version)
+		credentials.product_id = EosCredentials.PRODUCT_ID
+		credentials.sandbox_id = EosCredentials.SANDBOX_ID
+		credentials.deployment_id = EosCredentials.DEPLOYMENT_ID
+		credentials.client_id = EosCredentials.CLIENT_ID
+		credentials.client_secret = EosCredentials.CLIENT_SECRET
+		credentials.encryption_key = EosCredentials.ENCRYPTION_KEY
+		
 		await HAuth.login_anonymous_async("User")
+		
 		EosSetup = true
 		back_button.visible = true
 	else:
@@ -90,7 +95,7 @@ func exit_game():
 	
 func _exit_tree() -> void:
 	exit_game()
-		
+	
 func findMatch():
 	display.text = "Successful login"
 	await get_tree().create_timer(1.0).timeout
@@ -202,4 +207,4 @@ func _on_bot_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/direct_to_bot.tscn")
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Main Menu/MainMenu.tscn")
