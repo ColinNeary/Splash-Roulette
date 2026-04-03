@@ -58,16 +58,6 @@ func _ready() -> void:
 		peer.peer_connected.connect(_on_peer_connected)
 		peer.peer_disconnected.connect(_on_peer_disconnected)
 		
-		var credentials = HCredentials.new()
-		credentials.product_name = EosCredentials.PRODUCT_NAME
-		credentials.product_version = EosCredentials.PRODUCT_ID # (Typo? Should be version)
-		credentials.product_id = EosCredentials.PRODUCT_ID
-		credentials.sandbox_id = EosCredentials.SANDBOX_ID
-		credentials.deployment_id = EosCredentials.DEPLOYMENT_ID
-		credentials.client_id = EosCredentials.CLIENT_ID
-		credentials.client_secret = EosCredentials.CLIENT_SECRET
-		credentials.encryption_key = EosCredentials.ENCRYPTION_KEY
-		
 		await HAuth.login_anonymous_async("User")
 		
 		EosSetup = true
