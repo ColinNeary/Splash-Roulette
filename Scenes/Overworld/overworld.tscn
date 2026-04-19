@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c8v74vw2fov7x" path="res://Assets/Bubble/Bubble.glb" id="1_ik7ni"]
 [ext_resource type="Texture2D" uid="uid://cptqo4sa5ohln" path="res://Assets/Graphics/grass.png" id="1_v2ubc"]
 [ext_resource type="Texture2D" uid="uid://dlko15ldrsixy" path="res://Assets/Bubble/BubbleTexture.png" id="2_v2ubc"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Scenes/Entities/Player/Player.tscn" id="3_8q64x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yivkk"]
 sky_top_color = Color(0, 0.4392157, 0.44705883, 1)
@@ -33,6 +34,7 @@ albedo_texture = ExtResource("2_v2ubc")
 
 [node name="Overworld" type="Node3D" unique_id=70448934]
 script = ExtResource("1_8q64x")
+player_scene = ExtResource("3_8q64x")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1328215852]
 _spawnable_scenes = PackedStringArray("uid://bs72ogkvdd7d6")
