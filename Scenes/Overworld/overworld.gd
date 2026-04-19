@@ -7,7 +7,6 @@ func _ready() -> void:
 	spawn_players.rpc()
 
 @rpc("call_local", "any_peer", "reliable")
-func spawn_players() -> CharacterBody3D:
+func spawn_players() -> void:
 	var player: CharacterBody3D = player_scene.instantiate()
 	players.add_child(player)
-	return player
