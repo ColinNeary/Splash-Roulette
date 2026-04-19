@@ -65,6 +65,11 @@ var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 
+var authority_id: int :
+	set(id):
+		authority_id = id
+		set_multiplayer_authority(id)
+
 
 func _ready() -> void:
 	check_input_mappings()
