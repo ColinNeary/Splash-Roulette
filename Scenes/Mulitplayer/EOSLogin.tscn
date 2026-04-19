@@ -13,6 +13,10 @@ grow_vertical = 2
 script = ExtResource("1_5jlfc")
 game_scene = ExtResource("2_r5i5g")
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1162977161]
+_spawnable_scenes = PackedStringArray("uid://d8kix5k60r32")
+spawn_path = NodePath("..")
+
 [node name="Timer" type="Timer" parent="." unique_id=274971195]
 wait_time = 10.0
 
