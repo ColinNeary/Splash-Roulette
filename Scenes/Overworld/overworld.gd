@@ -5,7 +5,7 @@ extends Node3D
 
 func _ready() -> void:
 	$MultiplayerSpawner.spawn_function = spawn_players
-	spawn_players()
+	$MultiplayerSpawner.spawn()
 
 func spawn_players() -> CharacterBody3D:
 	var player: CharacterBody3D = player_scene.instantiate()
