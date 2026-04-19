@@ -4,8 +4,10 @@ extends Node3D
 @onready var players: Node3D = $Players
 
 func _ready() -> void:
+	$MultiplayerSpawner.spawn_function = spawn_players
 	spawn_players()
 
-func spawn_players() -> void:
+func spawn_players() -> CharacterBody3D:
 	var player: CharacterBody3D = player_scene.instantiate()
-	players.add_child(player)
+	#players.add_child(player)
+	return player
