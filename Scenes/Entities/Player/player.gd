@@ -65,10 +65,6 @@ var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 
-var authority_id: int :
-	set(id):
-		authority_id = id
-		set_multiplayer_authority(id)
 
 
 func _ready() -> void:
@@ -76,6 +72,9 @@ func _ready() -> void:
 	capture_mouse()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	
+	set_process_unhandled_input(is_multiplayer_authority())
+	set_physics_process(is_multiplayer_authority())
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing

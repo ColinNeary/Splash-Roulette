@@ -9,5 +9,5 @@ func _ready() -> void:
 @rpc("call_local", "any_peer", "reliable")
 func spawn_players() -> void:
 	var player: CharacterBody3D = player_scene.instantiate()
-	player.authority_id = multiplayer.get_unique_id()
+	player.set_multiplayer_authority(multiplayer.get_unique_id())
 	players.add_child(player)
