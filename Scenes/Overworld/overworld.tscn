@@ -36,10 +36,6 @@ albedo_texture = ExtResource("2_v2ubc")
 script = ExtResource("1_8q64x")
 player_scene = ExtResource("3_8q64x")
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1328215852]
-_spawnable_scenes = PackedStringArray("uid://bs72ogkvdd7d6")
-spawn_path = NodePath("../Players")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=276321001]
 environment = SubResource("Environment_7hkgx")
 
